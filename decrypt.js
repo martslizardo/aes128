@@ -1,14 +1,14 @@
 const CryptoJS = require("crypto-js");
 const aesCredentials = require("./aesCredentials.js");
 function decrypt(encrypted){      
-    const hexSalt = CryptoJS.enc.Hex.parse(salt);
-    var key = CryptoJS.PBKDF2(password,hexSalt,{
+    const hexSalt = CryptoJS.enc.Hex.parse(aesCredentials.salt);
+    var key = CryptoJS.PBKDF2(aesCredentials.password,hexSalt,{
         keySize: 128 / 32,
         iterations: 10
     }); 
     try {
         var decrypted = CryptoJS.AES.decrypt(encrypted, key, {
-            iv: CryptoJS.enc.Hex.parse(iv)
+            iv: CryptoJS.enc.Hex.parse(aesCrdentials.iv)
         }).toString(CryptoJS.enc.Utf8);
     } catch (e) {
         console.log(e);
