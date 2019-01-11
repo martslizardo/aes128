@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Encrypt and Decrypt REST API</title>
+    <meta charset=utf-8>
+    <link rel=stylesheet type=text/css href="/static/style.css">
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <script type=text/javascript
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+      <style type=text/css>
+        h1 { margin: 0 0 30px 0; background: url(/static/logo.png) no-repeat center; height: 165px; }
+        h1 span, p.tagline { display: none; }
+      </style>
+      <script type=text/javascript>
+        $(function() {
+             var encryptRequest = document.getElementById("encryptRequest");
+             encryptRequest.innerHTML = `{<br>\"encrypt\":354654654654654</br>}`;
+
+            var encryptResponse = document.getElementById("encryptResponse");
+             encryptResponse.innerHTML = `{<br>\"encrypt\": \"LIKzZYX4MioOb+C2AFeJaw==\"</br>}`;
+
+            var decryptRequest = document.getElementById("decryptRequest");
+             decryptRequest.innerHTML = `{<br>\"decrypt\": \"8U216SG4Sgk9WeHF8SeM8Q==\" <br>}`;
+
+            var decryptResponse = document.getElementById("decryptResponse");
+             decryptResponse.innerHTML = `{<br>\"decrypt\": \"213\"<br>}`; 
+        });
+      </script>
+</head>
+<body>
+    <div class=box>
+      <h2>RIPLEY AES 128 Encrypt and Decrypt</h2>
+        <blockquote>
+          A simple REST API for Encrypt and Decrypt
+        </blockquote>
+      <h2>Usage</h2>
+      <ul>
+          <li>Encrypt </li>
+          <pre>POST https://ripley-aes.herokuapp.com/encrypt</pre>
+          <blockquote>
+              Example:
+          </blockquote>
+          <pre id="encryptRequest"></pre>
+          <pre id="encryptResponse"></pre>             
+          <li>Decrypt</li>
+          <pre>POST https://ripley-aes.herokuapp.com/decrypt</pre>
+          <blockquote>
+              Example:
+          </blockquote>
+          <pre id="decryptRequest"></pre>
+          <pre id="decryptResponse"></pre>             
+      </ul>
+      <p class=footer>
+        &copy; Copyright 2018 by <a href=https://github.com/martslizardo>Martin Lizardo</a>
+    </div>
+</body>
+</html>
