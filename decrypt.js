@@ -8,7 +8,7 @@ function decrypt(encrypted){
     }); 
     try {
         var decrypted = CryptoJS.AES.decrypt(encrypted, key, {
-            iv: CryptoJS.enc.Hex.parse(aesCrdentials.iv)
+            iv: CryptoJS.enc.Hex.parse(aesCredentials.iv)
         }).toString(CryptoJS.enc.Utf8);
     } catch (e) {
         console.log(e);

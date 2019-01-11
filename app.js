@@ -3,6 +3,8 @@ const express = require('express');
 const bodyParser = require("body-parser");
 const ripleyDecrypt = require("./decrypt");
 const ripleyEncrypt = require("./encrypt");
+const path = __dirname + '/static/';
+
 
 app = express();
 app.use(bodyParser.urlencoded({
@@ -12,13 +14,20 @@ app.use(bodyParser.json());
 port = process.env.PORT || 8080;
 // routes will go here
 
-
+app.use('/static', express.static('static'));
+  
+app.get("/",function(req,res){
+    res.sendFile(path + "index.html");
+  });
+  
 
 
 // start the server
 app.listen(port);
 console.log('Server started! At http://localhost:' + port);
 
+
+app.ou
 
 
 app.post('/decrypt',function(req,res){
@@ -35,7 +44,7 @@ if (encrypted) {
 }
 console.log("Decrypted Value: " + JSON.stringify(decrypted));
 console.log('=======================================================');
-res.json(decrypted);
+res.json({"decrypt":decrypted});
 res.end();
 });
 
@@ -60,7 +69,7 @@ if (decrypted) {
 
 console.log("Encrypted Value: " + JSON.stringify(encrypted));
 console.log('=======================================================');
-res.json(encrypted);
+res.json({"encrypt":encrypted});
 res.end();
 });
 
